@@ -14,6 +14,7 @@ export type BlanketCategory =
   | '1-ply-flannel'
   | 'baby-kids'
   | 'bedspread-sets'
+  | 'bridal-trousseau'
   | 'summer-fleece'
   | 'institutional';
 

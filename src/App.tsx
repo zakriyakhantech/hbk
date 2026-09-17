@@ -57,7 +57,7 @@ const AppContent: React.FC = () => {
       <Navbar />
 
       {/* Dynamic View Body */}
-      <main className="flex-1">
+      <main className="flex-1 pb-16 lg:pb-0">
         {renderPage()}
       </main>
 
@@ -72,7 +72,7 @@ const AppContent: React.FC = () => {
       <TextureViewerModal />
 
       {/* Floating Action Buttons */}
-      <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2.5">
+      <div className="fixed bottom-18 lg:bottom-6 right-3.5 sm:right-6 z-40 flex flex-col items-end gap-2.5">
         {/* Fabric Simulator Quick Trigger */}
         <button
           onClick={() => setIsTextureViewerOpen(true)}
@@ -98,10 +98,10 @@ const AppContent: React.FC = () => {
           href="https://wa.me/923001234567?text=Hello%20HBK%20Blankets%20Support,%20I%20have%20an%20inquiry%20regarding%20your%20blankets."
           target="_blank"
           rel="noreferrer"
-          className="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl hover:scale-105 transition-transform cursor-pointer"
+          className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl hover:scale-105 transition-transform cursor-pointer"
           title="Chat with Customer Support on WhatsApp"
         >
-          <MessageSquare className="w-6 h-6 fill-white text-[#25D366]" />
+          <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 fill-white text-[#25D366]" />
         </a>
       </div>
     </div>

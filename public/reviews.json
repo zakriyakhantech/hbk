@@ -75,5 +75,60 @@
     "title": "Bulk purchase for our guest rooms in Murree",
     "comment": "Ordered 40 packs for our hotel resort. They wash cleanly in industrial machines and maintain thickness. Guests continuously praise the warmth.",
     "verifiedPurchase": true
+  },
+  {
+    "id": "rev-8",
+    "productId": "hbk-kohinoor-bridal-8kg",
+    "author": "Chaudhry Nadeem Akhtar",
+    "city": "Faisalabad",
+    "rating": 5,
+    "date": "March 10, 2025",
+    "title": "The centerpiece of my daughter's wedding trousseau (Jahez)",
+    "comment": "We visited the factory in Faisalabad and ordered the Kohinoor 8kg Bridal Velvet in Mughal Maroon. The golden Zari embroidery and heavy weight of 8 kilograms makes it look like it belongs in a royal palace. The bride's in-laws were immensely impressed by the quality. The leather suitcase presentation is magnificent.",
+    "verifiedPurchase": true
+  },
+  {
+    "id": "rev-9",
+    "productId": "hbk-chinar-leaf-2ply-5-5kg",
+    "author": "Shahid Afridi Jan",
+    "city": "Swat",
+    "rating": 5,
+    "date": "February 18, 2025",
+    "title": "Deep 3D leaf pattern and exceptional warmth in Swat valley",
+    "comment": "Sub-zero temperatures in Malam Jabba and Mingora demand serious blankets. The Royal Chinar 5.5kg traps body heat within seconds. The 3D embossing does not flatten even after washing.",
+    "verifiedPurchase": true
+  },
+  {
+    "id": "rev-10",
+    "productId": "hbk-al-makkah-jacquard-6kg",
+    "author": "Haji Ghulam Rasool",
+    "city": "Multan",
+    "rating": 5,
+    "date": "January 30, 2025",
+    "title": "Blessed geometric patterns with genuine 6kg King size drape",
+    "comment": "Ordered 3 pieces of Al-Makkah King Size blankets for our home and for gifting. The fabric is 100% pure Korean acrylic and very heavy. Beautifully wrapped with COD delivery right to our doorstep.",
+    "verifiedPurchase": true
+  },
+  {
+    "id": "rev-11",
+    "productId": "hbk-little-angels-swaddle",
+    "author": "Dr. Mariam Farooq",
+    "city": "Sialkot",
+    "rating": 5,
+    "date": "February 27, 2025",
+    "title": "Super safe 2-way zipper and pure cotton shell",
+    "comment": "As a pediatrician and mother of a 2-month-old, I am very cautious about newborn bedding. The Little Angels Swaddle is hypoallergenic, pure cotton outside, and very soft Sherpa inside. Essential for winter babies in Punjab.",
+    "verifiedPurchase": true
+  },
+  {
+    "id": "rev-12",
+    "productId": "hbk-royal-crest-8piece-bridal",
+    "author": "Begum Shazia Mansoor",
+    "city": "Lahore (DHA)",
+    "rating": 5,
+    "date": "March 5, 2025",
+    "title": "Unrivaled master bridal suite luxury",
+    "comment": "The Imperial Crest 8-Piece set is simply breathtaking. The embroidery, quilt thickness, and bolster cushions complete the entire master bridal bedroom. Much superior to imported Chinese sets.",
+    "verifiedPurchase": true
   }
 ]

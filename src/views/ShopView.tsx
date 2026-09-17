@@ -42,6 +42,7 @@ export const ShopView: React.FC = () => {
 
   const categories: { id: BlanketCategory; label: string }[] = [
     { id: 'all', label: 'All Blankets & Bedding' },
+    { id: 'bridal-trousseau', label: '👑 Bridal Trousseau & Jahez' },
     { id: '2-ply-double', label: '2-Ply Heavy Double Bed' },
     { id: '1-ply-flannel', label: '1-Ply Cozy Flannel' },
     { id: 'baby-kids', label: 'Baby & Kids Wraps' },

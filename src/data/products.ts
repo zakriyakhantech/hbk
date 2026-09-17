@@ -564,6 +564,336 @@ export const PRODUCTS: Product[] = [
       }
     ],
     inStock: true
+  },
+  {
+    id: 'hbk-kohinoor-bridal-8kg',
+    name: 'HBK Kohinoor Bridal Velvet 8.0kg 2-Ply Trousseau',
+    urduName: 'کوہِ نور برائیڈل مخمل ۸.۰ کلو گرام ۲-پلائی کمبل',
+    tagline: 'The ultimate royal wedding heirloom. 8kg of hand-sculpted Korean velvet mink.',
+    category: 'bridal-trousseau',
+    pricePKR: 13800,
+    originalPricePKR: 16500,
+    rating: 5.0,
+    reviewCount: 98,
+    ply: '2-Ply',
+    weightKg: 8.0,
+    dimensions: '220 x 240 cm (King Luxury)',
+    material: '100% Virgin Korean Acrylic (1450 GSM Double Layer) with Heavy Zari Border Trim',
+    warmthRating: 'Arctic Ultra-Warm',
+    togRating: 17.5,
+    description: 'Regarded as the crowning jewel of HBK manufacturing, the Kohinoor Bridal Velvet blanket is woven specifically for grand Pakistani weddings, winter trousseaus, and generational family gifting. Weighing an immense 8.0 kilograms with ultra-dense Korean Raschel fleece, it carries ornate 3D floral bas-relief embossing and a regal metallic gold Zari edge trim.',
+    features: [
+      'Pakistan’s heaviest bridal trousseau blanket at 8.0 kg net weight',
+      'Dual-ply thermal sandwich construction with deep 3D floral relief embossing',
+      'Handcrafted heavy golden Zari embroidered border casing',
+      '10-Year anti-pilling, anti-shedding & thermal integrity mill guarantee',
+      'Delivered in luxury velvet embroidered bridal suitcase with lock'
+    ],
+    careInstructions: [
+      'Professional dry cleaning recommended for bridal embellishments',
+      'Spot clean with mild wool shampoo if needed',
+      'Store in provided velvet suitcase with lavender sachet'
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1540518614846-7ede433c4ef5?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1000&q=80'
+    ],
+    variants: [
+      {
+        id: 'koh-maroon-gold',
+        name: 'Royal Maroon with Antique Zari',
+        colorHex: '#5C131F',
+        colorName: 'Mughal Maroon',
+        image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1000&q=80',
+        inStock: true
+      },
+      {
+        id: 'koh-emerald-gold',
+        name: 'Regal Emerald with Golden Brocade',
+        colorHex: '#0D3823',
+        colorName: 'Regal Emerald',
+        image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80',
+        inStock: true
+      },
+      {
+        id: 'koh-ivory-champagne',
+        name: 'Champagne Ivory Pearl',
+        colorHex: '#EAE1CE',
+        colorName: 'Champagne Ivory',
+        image: 'https://images.unsplash.com/photo-1540518614846-7ede433c4ef5?auto=format&fit=crop&w=1000&q=80',
+        inStock: true
+      }
+    ],
+    isBestSeller: true,
+    isNewArrival: true,
+    isFeatured: true,
+    inStock: true
+  },
+  {
+    id: 'hbk-chinar-leaf-2ply-5-5kg',
+    name: 'HBK Royal Chinar 2-Ply 5.5kg Embossed Mink Blanket',
+    urduName: 'رائل چنار ۲-پلائی ۵.۵ کلو کورین منک کمبل',
+    tagline: 'Deep 3D leaf embossing with dual-thermal insulation for freezing sub-zero nights.',
+    category: '2-ply-double',
+    pricePKR: 8800,
+    originalPricePKR: 10600,
+    rating: 4.94,
+    reviewCount: 210,
+    ply: '2-Ply',
+    weightKg: 5.5,
+    dimensions: '200 x 240 cm (Double / Queen)',
+    material: 'Double-Layer Raschel Embossed Korean Acrylic with Anti-Static Shield',
+    warmthRating: 'Heavy Winter',
+    togRating: 14.0,
+    description: 'Inspired by the majestic autumn Chinar trees of northern valleys, this 5.5kg double-ply blanket features sculpted bas-relief leaves that feel silky smooth to the touch. The dense Korean Dralon microfibers create a warm microclimate within minutes.',
+    features: [
+      'Sculpted 3D Chinar leaf relief pattern engineered through heated embossing cylinders',
+      'Dual-ply thermal core locks in body heat throughout freezing winter nights',
+      'Antistatic treatment resists winter electrostatic crackles and pet hair',
+      'Wide mitered velvet edge binding with heavy-duty twin needle stitching'
+    ],
+    careInstructions: [
+      'Machine wash gentle in cold water (below 30°C)',
+      'Tumble dry low or air dry in shade',
+      'Do not iron or dry clean'
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1000&q=80'
+    ],
+    variants: [
+      {
+        id: 'chin-amber',
+        name: 'Chinar Autumn Amber & Rust',
+        colorHex: '#9E472A',
+        colorName: 'Autumn Amber',
+        image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1000&q=80',
+        inStock: true
+      },
+      {
+        id: 'chin-navy',
+        name: 'Deep Sapphire Midnight',
+        colorHex: '#1B2A47',
+        colorName: 'Midnight Navy',
+        image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1000&q=80',
+        inStock: true
+      }
+    ],
+    isBestSeller: true,
+    isFeatured: true,
+    inStock: true
+  },
+  {
+    id: 'hbk-al-makkah-jacquard-6kg',
+    name: 'HBK Al-Makkah Heavy Jacquard 6.0kg 2-Ply Blanket',
+    urduName: 'المکہ ہیوی جکوارڈ ۶.۰ کلو ۲-پلائی کمبل',
+    tagline: 'Sacred arabesque patterns and deep thermal retention woven at Faisalabad Mill.',
+    category: '2-ply-double',
+    pricePKR: 10200,
+    originalPricePKR: 12400,
+    rating: 4.97,
+    reviewCount: 178,
+    ply: '2-Ply',
+    weightKg: 6.0,
+    dimensions: '220 x 240 cm (King Size)',
+    material: '100% Thermal Raschel Dralon Acrylic with Silk Velvet Edge Binding',
+    warmthRating: 'Arctic Ultra-Warm',
+    togRating: 15.5,
+    description: 'The Al-Makkah series by HBK Blankets is widely celebrated across Pakistan for its grand sacred geometric borders and luxurious 6.0kg King drape. Designed for large double and King-sized master beds, giving unmatched warmth and serene bedroom elegance.',
+    features: [
+      'Grand 220 x 240 cm King drape covers thick 14-inch mattresses',
+      'Pure virgin Dralon acrylic fibers certified hypoallergenic',
+      'Rich two-tone jacquard relief weave with anti-pill guarantee',
+      'Supplied in reinforced HBK gold-stamped presentation carrying bag'
+    ],
+    careInstructions: [
+      'Machine wash gentle in cold water with mild detergent',
+      'Air dry flat or line dry away from direct scorching sunlight'
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1000&q=80'
+    ],
+    variants: [
+      {
+        id: 'mak-gold-black',
+        name: 'Arabian Black & Gold Arabesque',
+        colorHex: '#26221C',
+        colorName: 'Black & Gold',
+        image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80',
+        inStock: true
+      },
+      {
+        id: 'mak-sapphire',
+        name: 'Royal Sapphire & Cream',
+        colorHex: '#1D3557',
+        colorName: 'Sapphire Blue',
+        image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1000&q=80',
+        inStock: true
+      }
+    ],
+    isFeatured: true,
+    inStock: true
+  },
+  {
+    id: 'hbk-cloudtouch-micromink-throw',
+    name: 'HBK CloudTouch Zero-Gravity 1-Ply Micromink Throw',
+    urduName: 'کلاؤڈ ٹچ زیرو گریوٹی ۱-پلائی مائکرو منک کمبل',
+    tagline: 'Silky smooth sofa & AC throw blanket with featherweight luxury drape.',
+    category: '1-ply-flannel',
+    pricePKR: 3200,
+    originalPricePKR: 4000,
+    rating: 4.88,
+    reviewCount: 134,
+    ply: '1-Ply',
+    weightKg: 1.95,
+    dimensions: '180 x 220 cm (Generous Throw / Single)',
+    material: 'Super-Soft High-Luster Micro-Mink Velvet Fleece (380 GSM)',
+    warmthRating: 'Medium All-Season',
+    togRating: 7.2,
+    description: 'Designed for modern urban apartments and air-conditioned living rooms, the CloudTouch throw delivers instant buttery tactile sensation. Ideal for lounging on couches, reading sessions, or as an elegant bed runner.',
+    features: [
+      'Ultra-dense micro-velvet fibers with zero static electricity buildup',
+      'Feather-soft drape with zero shedding or microfiber lint',
+      'Breathable all-season comfort for AC bedrooms from March to October',
+      'Contemporary minimalist solid tones that complement modern home decor'
+    ],
+    careInstructions: [
+      'Machine wash gentle in cold water',
+      'Quick drying fabric—ready to use in under an hour'
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?auto=format&fit=crop&w=1000&q=80'
+    ],
+    variants: [
+      {
+        id: 'ct-pearl',
+        name: 'Pearl Oyster White',
+        colorHex: '#EAE6DF',
+        colorName: 'Pearl White',
+        image: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=1000&q=80',
+        inStock: true
+      },
+      {
+        id: 'ct-slate',
+        name: 'Dove Slate Grey',
+        colorHex: '#606670',
+        colorName: 'Slate Grey',
+        image: 'https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?auto=format&fit=crop&w=1000&q=80',
+        inStock: true
+      }
+    ],
+    isNewArrival: true,
+    inStock: true
+  },
+  {
+    id: 'hbk-little-angels-swaddle',
+    name: 'HBK Little Angels Sherpa & Pure Cotton Newborn Swaddle',
+    urduName: 'لٹل اینجلز پیور کاٹن و شیرپا بے بی سوئڈل',
+    tagline: 'Pediatrician-approved zip cocoon swaddle with breathable Turkish fleece lining.',
+    category: 'baby-kids',
+    pricePKR: 2250,
+    originalPricePKR: 2900,
+    rating: 4.98,
+    reviewCount: 310,
+    ply: '2-Ply',
+    weightKg: 0.65,
+    dimensions: '85 x 90 cm (Newborn to 12 Months)',
+    material: '100% Organic Combed Cotton Shell with Ultra-Plush Hypoallergenic Sherpa Lining',
+    warmthRating: 'Heavy Winter',
+    togRating: 7.0,
+    description: 'Protect your infant against cold drafts with the HBK Little Angels Swaddle Cocoon. The interior features cloud-soft, unbleached Turkish Sherpa fleece, while the outer shell is woven from 100% breathable organic Pakistani cotton.',
+    features: [
+      'Two-way smooth safety zipper for effortless late-night diaper changes without undressing',
+      'Comfort-wrap wings mimic the natural feeling of a mother’s embrace',
+      'Zero synthetic dyes, nickel-free zippers, and OEKO-TEX Standard 100 Class 1 certified',
+      'Includes matching bear-ear infant bonnet and cotton gift bag'
+    ],
+    careInstructions: [
+      'Machine wash cold on gentle cycle with mild baby detergent',
+      'Tumble dry low or air dry in mild sunlight'
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80'
+    ],
+    variants: [
+      {
+        id: 'la-cloud',
+        name: 'Milky Cloud White',
+        colorHex: '#F7F4EE',
+        colorName: 'Cloud White',
+        image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=1000&q=80',
+        inStock: true
+      },
+      {
+        id: 'la-blush',
+        name: 'Sweet Peaches & Cream',
+        colorHex: '#FAD9D0',
+        colorName: 'Blush Peach',
+        image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80',
+        inStock: true
+      }
+    ],
+    isBestSeller: true,
+    isNewArrival: true,
+    inStock: true
+  },
+  {
+    id: 'hbk-royal-crest-8piece-bridal',
+    name: 'HBK Imperial Crest 8-Piece Embroidered Master Bridal Quilt Suite',
+    urduName: 'امپیریل کرسٹ ۸ پیس ایمبرائیڈرڈ ماسٹر برائیڈل کوئلٹ سیٹ',
+    tagline: 'The ultimate royal Pakistani bridal trousseau package with 8 handcrafted master pieces.',
+    category: 'bridal-trousseau',
+    pricePKR: 18500,
+    originalPricePKR: 22500,
+    rating: 5.0,
+    reviewCount: 82,
+    ply: 'Quilted / Multi-layer',
+    weightKg: 7.5,
+    dimensions: 'Master Quilt: 250 x 270 cm, Sheet: 240 x 260 cm, 4 Pillow Shams, 2 Bolsters',
+    material: 'Embossed Silk Velvet with Zari Threadwork, 400 GSM Microfiber Poly-Down Filling',
+    warmthRating: 'Arctic Ultra-Warm',
+    togRating: 14.5,
+    description: 'The master pride of HBK’s Faisalabad atelier. This grand 8-piece royal suite includes a heavy embossed bridal quilt, silk-touch fitted sheet, four matching flange pillow shams, and two filled bolster cushions. Designed to make the wedding bedroom look like a Mughal palace suite.',
+    features: [
+      'Comprehensive 8-piece master trousseau collection',
+      'Intricate computer-guided multi-needle baroque quilting',
+      'Supple silk-touch velvet surface with antique metallic gold thread highlights',
+      'Ultra-durable anti-shift filling maintains loft for over a decade',
+      'Shipped in a custom wooden-frame luxury bridal trunk with brass latches'
+    ],
+    careInstructions: [
+      'Dry clean recommended to preserve royal embroidery and metallic highlights',
+      'Store in provided protective trunk with cedar balls'
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1540518614846-7ede433c4ef5?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80'
+    ],
+    variants: [
+      {
+        id: 'rc-wine',
+        name: 'Sultanate Crimson Wine',
+        colorHex: '#4F111D',
+        colorName: 'Crimson Wine',
+        image: 'https://images.unsplash.com/photo-1540518614846-7ede433c4ef5?auto=format&fit=crop&w=1000&q=80',
+        inStock: true
+      },
+      {
+        id: 'rc-gold',
+        name: 'Mughal Antique Gold',
+        colorHex: '#C59A3F',
+        colorName: 'Antique Gold',
+        image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80',
+        inStock: true
+      }
+    ],
+    isFeatured: true,
+    isNewArrival: true,
+    inStock: true
   }
 ];
 
