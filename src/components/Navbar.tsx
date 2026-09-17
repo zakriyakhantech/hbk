@@ -152,13 +152,13 @@ export const Navbar: React.FC = () => {
       <header className="sticky top-0 z-[60] w-full bg-white border-b border-[#DFCBB5] shadow-xs transition-all">
         
         {/* Tier 1: Executive Leadership & Trust Top Ribbon */}
-        <div className="bg-[#141210] text-[#EDE7DE] text-[11px] py-1.5 px-3 sm:px-6 border-b border-[#2B2620]">
+        <div className="bg-[#0E0D0A] text-[#EDE7DE] text-[11px] py-1.5 px-3 sm:px-6 border-b border-[#2D2419]">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
             
             {/* Left: Free delivery & COD status */}
             <div className="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap">
-              <span className="inline-flex items-center gap-1 font-bold text-[#E5B57F]">
-                <Truck className="w-3.5 h-3.5 text-[#E5B57F] shrink-0" />
+              <span className="inline-flex items-center gap-1 font-bold text-[#F3C472]">
+                <Truck className="w-3.5 h-3.5 text-[#F3C472] shrink-0" />
                 <span>FREE Home Delivery</span>
               </span>
               <span className="text-[#695F52] hidden sm:inline">•</span>
@@ -175,15 +175,15 @@ export const Navbar: React.FC = () => {
             <div className="flex items-center gap-2 shrink-0">
               <button
                 onClick={() => setIsLeadershipModalOpen(true)}
-                className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-[#29221B] to-[#1C1712] border border-[#96764D]/60 text-[#E5B57F] hover:text-white hover:border-[#D9A76A] text-[10px] sm:text-[11px] font-bold tracking-wide transition-all shadow-xs cursor-pointer group"
+                className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-[#2B1F14] to-[#1C140D] border border-[#B8860B]/60 text-[#F5D08A] hover:text-white hover:border-[#F0C27B] text-[10px] sm:text-[11px] font-bold tracking-wide transition-all shadow-xs cursor-pointer group"
                 title="View HBK Executive Leadership Profile"
               >
-                <Crown className="w-3 h-3 text-[#E5B57F] group-hover:rotate-12 transition-transform" />
+                <Crown className="w-3 h-3 text-[#F3C472] group-hover:rotate-12 transition-transform" />
                 <span className="hidden xs:inline">Executive Board:</span>
-                <span className="text-white font-extrabold group-hover:text-[#E5B57F] transition-colors">CEO Mohibullah</span>
+                <span className="text-white font-extrabold group-hover:text-[#F5D08A] transition-colors">CEO Mohibullah</span>
                 <span className="text-[#8C7D6B]">•</span>
-                <span className="text-white font-extrabold group-hover:text-[#E5B57F] transition-colors">Director Amir Khan Afridi</span>
-                <span className="text-[9px] uppercase px-1 py-0.2 rounded bg-[#C28E5B] text-black font-extrabold ml-1 hidden sm:inline">
+                <span className="text-white font-extrabold group-hover:text-[#F5D08A] transition-colors">Director Amir Khan Afridi</span>
+                <span className="text-[9px] uppercase px-1.5 py-0.2 rounded bg-[#C58B38] text-black font-extrabold ml-1 hidden sm:inline">
                   Profiles
                 </span>
               </button>
@@ -195,7 +195,7 @@ export const Navbar: React.FC = () => {
                 href="https://wa.me/923001234567?text=Hello%20HBK%20Blankets,%20I%20want%20to%20inquire%20about%20blankets."
                 target="_blank"
                 rel="noreferrer"
-                className="hidden lg:inline-flex items-center gap-1 text-[#EDE7DE] hover:text-[#E5B57F] transition-colors font-medium"
+                className="hidden lg:inline-flex items-center gap-1 text-[#EDE7DE] hover:text-[#F3C472] transition-colors font-medium"
               >
                 <MessageCircle className="w-3 h-3 text-[#25D366]" />
                 <span>WhatsApp: +92 300 1234567</span>
@@ -208,9 +208,9 @@ export const Navbar: React.FC = () => {
                 <button
                   id="currency-toggle-btn"
                   onClick={() => setIsCurrencyDropdownOpen(!isCurrencyDropdownOpen)}
-                  className="flex items-center gap-1 font-bold text-[#EDE7DE] hover:text-[#E5B57F] transition-colors px-1 py-0.5 rounded cursor-pointer"
+                  className="flex items-center gap-1 font-bold text-[#EDE7DE] hover:text-[#F3C472] transition-colors px-1 py-0.5 rounded cursor-pointer"
                 >
-                  <span className="text-[#E5B57F]">{currency}</span>
+                  <span className="text-[#F3C472]">{currency}</span>
                   <ChevronDown className="w-3 h-3 text-[#B3A694]" />
                 </button>
 
@@ -250,18 +250,18 @@ export const Navbar: React.FC = () => {
               className="flex items-center gap-2.5 sm:gap-3.5 cursor-pointer group select-none shrink-0"
               title="HBK Blankets - Haji Bahadur Khan Textile Mills"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#1C1A17] via-[#2F2921] to-[#1C1A17] flex items-center justify-center text-[#E5B57F] shadow-md border border-[#96764D]/50 group-hover:scale-105 transition-transform">
-                <span className="font-serif font-black text-lg sm:text-xl tracking-tight text-[#E5B57F]">HBK</span>
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#18140E] via-[#2A1D11] to-[#15110B] flex items-center justify-center text-[#F3C472] shadow-md border border-[#B8860B]/60 group-hover:scale-105 transition-transform">
+                <span className="font-serif font-black text-lg sm:text-xl tracking-tight text-[#F3C472]">HBK</span>
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-serif font-black text-xl sm:text-2xl tracking-wide text-[#1C1A17]">HBK</span>
-                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-extrabold text-[#8C6D46] border-l border-[#DECDB7] pl-1.5">
+                  <span className="font-serif font-black text-xl sm:text-2xl tracking-wide text-[#181512]">HBK</span>
+                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-extrabold text-[#996F37] border-l border-[#DECDB7] pl-1.5">
                     Blankets
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5 text-[9px] sm:text-[10px] text-[#7A7265] font-semibold tracking-tight">
-                  <span className="uppercase text-[#8C6D46] font-bold">Haji Bahadur Khan Mills</span>
+                  <span className="uppercase text-[#996F37] font-bold">Haji Bahadur Khan Mills</span>
                   <span className="hidden sm:inline text-[#C2AA8C]">•</span>
                   <span className="hidden sm:inline text-[#574E41]">Est. 1994</span>
                 </div>
@@ -276,13 +276,13 @@ export const Navbar: React.FC = () => {
                   value={searchInput}
                   onChange={e => setSearchInput(e.target.value)}
                   placeholder="Search 2-Ply, Kohinoor Bridal 8kg, Flannel, Baby..."
-                  className="w-full bg-[#FAF6F0] text-xs text-[#1C1A17] placeholder-[#8A8174] pl-10 pr-16 py-2.5 rounded-full border border-[#DFD7C7] focus:outline-none focus:border-[#C28E5B] focus:bg-white focus:ring-2 focus:ring-[#C28E5B]/20 transition-all shadow-inner"
+                  className="w-full bg-[#F8F5EE] text-xs text-[#181512] placeholder-[#8A8174] pl-10 pr-16 py-2.5 rounded-full border border-[#DFD7C7] focus:outline-none focus:border-[#C58B38] focus:bg-white focus:ring-2 focus:ring-[#C58B38]/20 transition-all shadow-inner"
                 />
                 <Search className="w-4 h-4 text-[#8A8174] absolute left-3.5 top-3" />
                 {searchInput && (
                   <button
                     onClick={() => setSearchInput('')}
-                    className="absolute right-3 top-2.5 text-xs text-[#8A8174] hover:text-[#1C1A17] cursor-pointer font-medium"
+                    className="absolute right-3 top-2.5 text-xs text-[#8A8174] hover:text-[#181512] cursor-pointer font-medium"
                   >
                     Clear
                   </button>
@@ -313,8 +313,8 @@ export const Navbar: React.FC = () => {
                       />
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2">
-                          <p className="text-xs font-bold text-[#1C1A17] truncate">{prod.name}</p>
-                          <span className="text-xs font-bold text-[#C28E5B] shrink-0">
+                          <p className="text-xs font-bold text-[#181512] truncate">{prod.name}</p>
+                          <span className="text-xs font-bold text-[#C58B38] shrink-0">
                             {formatPrice(prod.pricePKR)}
                           </span>
                         </div>
@@ -332,17 +332,17 @@ export const Navbar: React.FC = () => {
               {/* Executive Directorate Button (Prominently Highlighted) */}
               <button
                 onClick={() => setIsLeadershipModalOpen(true)}
-                className="hidden xl:inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold bg-[#1C1A17] text-[#E5B57F] border border-[#96764D]/50 hover:bg-[#2F2921] transition-all cursor-pointer shadow-xs"
+                className="hidden xl:inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold bg-[#14120E] text-[#F3C472] border border-[#B8860B]/60 hover:bg-[#251E16] transition-all cursor-pointer shadow-xs"
                 title="HBK Board: CEO Mohibullah & Director Amir Khan Afridi"
               >
-                <Crown className="w-3.5 h-3.5 text-[#E5B57F]" />
+                <Crown className="w-3.5 h-3.5 text-[#F3C472]" />
                 <span>CEO & Director</span>
               </button>
 
               {/* Warmth Finder Button */}
               <button
                 onClick={() => setIsWarmthQuizOpen(true)}
-                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold bg-[#F4EFE6] text-[#7A5626] border border-[#DFCBB5] hover:bg-[#EADBCE] transition-all cursor-pointer shadow-xs"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold bg-[#F5EFE4] text-[#8C5D23] border border-[#DFCBB5] hover:bg-[#EBDFCE] transition-all cursor-pointer shadow-xs"
                 title="Interactive Warmth TOG Calculator"
               >
                 <Flame className="w-3.5 h-3.5 text-[#D16D34] fill-[#D16D34]" />
@@ -381,19 +381,19 @@ export const Navbar: React.FC = () => {
               <button
                 id="cart-drawer-toggle-btn"
                 onClick={() => setIsCartOpen(true)}
-                className="flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-full bg-[#1C1A17] text-[#FAF8F5] hover:bg-[#332E27] transition-all cursor-pointer shadow-md group"
+                className="flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-full bg-[#14120E] text-[#FAF8F5] hover:bg-[#251E16] transition-all cursor-pointer shadow-md group"
               >
                 <div className="relative">
-                  <ShoppingBag className="w-4 h-4 text-[#E5B57F]" />
+                  <ShoppingBag className="w-4 h-4 text-[#F3C472]" />
                   {cartItemCount > 0 && (
-                    <span className="absolute -top-2 -right-2.5 w-4 h-4 rounded-full bg-[#C28E5B] text-white text-[9px] font-bold flex items-center justify-center shadow-xs">
+                    <span className="absolute -top-2 -right-2.5 w-4 h-4 rounded-full bg-[#C58B38] text-white text-[9px] font-bold flex items-center justify-center shadow-xs">
                       {cartItemCount}
                     </span>
                   )}
                 </div>
                 <div className="hidden sm:flex flex-col text-left leading-none">
                   <span className="text-[10px] text-neutral-400 font-medium">Cart</span>
-                  <span className="text-xs font-bold text-[#E5B57F]">
+                  <span className="text-xs font-bold text-[#F3C472]">
                     {cartItemCount > 0 ? formatPrice(cartTotalPKR) : '₨ 0'}
                   </span>
                 </div>
@@ -525,7 +525,7 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Tier 4: Quick Category Chips Sub-Bar (Responsive, 1-tap horizontal access) */}
-        <div className="w-full bg-[#FAF7F2] border-t border-[#EAE2D5] py-2 px-3 sm:px-6 overflow-x-auto scrollbar-none">
+        <div className="w-full bg-[#F7F3EB] border-t border-[#E8DFC9] py-2 px-3 sm:px-6 overflow-x-auto scrollbar-none">
           <div className="max-w-7xl mx-auto flex items-center gap-1.5 sm:gap-2 whitespace-nowrap min-w-max">
             {quickPills.map(pill => {
               const isSelected = 
@@ -540,10 +540,10 @@ export const Navbar: React.FC = () => {
                   onClick={() => handlePillClick(pill)}
                   className={`px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
                     pill.id === 'leadership'
-                      ? 'bg-gradient-to-r from-[#29221B] to-[#1C1A17] text-[#E5B57F] border border-[#96764D]/60 hover:border-[#D9A76A]'
+                      ? 'bg-gradient-to-r from-[#241C13] to-[#15110B] text-[#F3C472] border border-[#B8860B]/60 hover:border-[#F0C27B]'
                       : isSelected
-                        ? 'bg-[#1C1A17] text-[#FAF8F5] shadow-xs'
-                        : 'bg-white text-[#4A4235] border border-[#DECDB7] hover:border-[#8C6D46] hover:bg-[#F2ECE1]'
+                        ? 'bg-[#181512] text-[#FAF8F5] shadow-xs'
+                        : 'bg-white text-[#4A4235] border border-[#DECDB7] hover:border-[#996F37] hover:bg-[#F2ECE1]'
                   }`}
                 >
                   {pill.icon}
@@ -551,10 +551,10 @@ export const Navbar: React.FC = () => {
                   {pill.badge && (
                     <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded-full uppercase ${
                       pill.id === 'leadership'
-                        ? 'bg-[#C28E5B] text-black font-extrabold'
+                        ? 'bg-[#C58B38] text-black font-extrabold'
                         : isSelected 
-                          ? 'bg-[#C28E5B] text-white' 
-                          : 'bg-[#F0E6D8] text-[#8C6D46]'
+                          ? 'bg-[#C58B38] text-white' 
+                          : 'bg-[#EDE3D2] text-[#996F37]'
                     }`}>
                       {pill.badge}
                     </span>

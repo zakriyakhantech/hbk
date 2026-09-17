@@ -194,7 +194,7 @@ export const HomeView: React.FC = () => {
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
             <div className="max-w-2xl space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#C28E5B]/20 border border-[#D9A76A]/40 text-[#D9A76A] text-xs font-bold tracking-widest uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#B8860B]/20 border border-[#F3C472]/40 text-[#F5D08A] text-xs font-bold tracking-widest uppercase">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>{currentSlide.badge}</span>
                 <span className="text-white/40">•</span>
@@ -205,12 +205,12 @@ export const HomeView: React.FC = () => {
                 <h1 className="font-serif font-bold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1]">
                   {currentSlide.title}
                 </h1>
-                <p className="text-sm sm:text-base text-[#D9C8B4] font-medium" dir="rtl">
+                <p className="text-sm sm:text-base text-[#E2D2BE] font-medium" dir="rtl">
                   {currentSlide.urdu}
                 </p>
               </div>
 
-              <p className="text-sm sm:text-base text-[#D1C7BA] leading-relaxed max-w-xl">
+              <p className="text-sm sm:text-base text-[#D8CFBF] leading-relaxed max-w-xl">
                 {currentSlide.subtitle}
               </p>
 
@@ -227,7 +227,7 @@ export const HomeView: React.FC = () => {
                       setPage('shop');
                     }
                   }}
-                  className="px-6 py-3.5 rounded-xl bg-[#C28E5B] hover:bg-[#A87444] text-white text-xs sm:text-sm font-bold tracking-wide transition-all flex items-center gap-2.5 shadow-xl hover:shadow-2xl cursor-pointer"
+                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#B87B2E] via-[#C58B38] to-[#D69B45] hover:brightness-110 text-white text-xs sm:text-sm font-bold tracking-wide transition-all flex items-center gap-2.5 shadow-xl hover:shadow-2xl cursor-pointer"
                 >
                   <span>{currentSlide.ctaText}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -238,7 +238,7 @@ export const HomeView: React.FC = () => {
                   onClick={() => setIsWarmthQuizOpen(true)}
                   className="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold border border-white/20 transition-colors flex items-center gap-2 cursor-pointer backdrop-blur-xs"
                 >
-                  <Flame className="w-4 h-4 text-[#D9A76A]" />
+                  <Flame className="w-4 h-4 text-[#F3C472]" />
                   <span>Warmth TOG Quiz</span>
                 </button>
               </div>
