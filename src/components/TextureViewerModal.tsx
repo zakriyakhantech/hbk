@@ -73,7 +73,7 @@ export const TextureViewerModal: React.FC = () => {
   const linkedProduct = PRODUCTS.find(p => p.id === currentFabric.signatureProduct);
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-6 lg:p-8 flex items-center justify-center">
+    <div className="fixed inset-0 z-[100] overflow-y-auto p-4 sm:p-6 lg:p-8 flex items-center justify-center">
       <div 
         onClick={() => setIsTextureViewerOpen(false)}
         className="fixed inset-0 bg-black/70 backdrop-blur-xs transition-opacity"

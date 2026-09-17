@@ -20,8 +20,11 @@ import {
   CheckCircle2,
   ExternalLink,
   MessageCircle,
-  Clock,
-  ShieldCheck
+  ShieldCheck,
+  Award,
+  Factory,
+  Mail,
+  UserCheck
 } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 import { PRODUCTS } from '../data/products';
@@ -42,18 +45,19 @@ export const Navbar: React.FC = () => {
     navigateToProduct, 
     activeCategory, 
     setActiveCategory,
-    setSearchQuery
+    setIsTextureViewerOpen
   } = useShop();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [isCurrencyDropdownOpen, setIsCurrencyDropdownOpen] = useState(false);
+  const [isLeadershipModalOpen, setIsLeadershipModalOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  // Lock body scroll when mobile menu is open
+  // Lock body scroll when mobile menu or leadership modal is open
   useEffect(() => {
-    if (isMobileMenuOpen) {
+    if (isMobileMenuOpen || isLeadershipModalOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -61,7 +65,7 @@ export const Navbar: React.FC = () => {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, isLeadershipModalOpen]);
 
   useEffect(() => {
     if (isSearchOpen && searchInputRef.current) {
@@ -79,32 +83,37 @@ export const Navbar: React.FC = () => {
         p.category.toLowerCase().includes(searchInput.toLowerCase())
       ).slice(0, 5);
 
-  const quickPills: { id: BlanketCategory | 'quiz' | 'b2b' | 'track'; label: string; icon?: React.ReactNode; badge?: string }[] = [
+  const quickPills: { id: BlanketCategory | 'quiz' | 'b2b' | 'track' | 'leadership'; label: string; icon?: React.ReactNode; badge?: string }[] = [
     { id: 'all', label: 'All Blankets', icon: <Layers className="w-3.5 h-3.5" /> },
-    { id: 'bridal-trousseau', label: 'Bridal Trousseau (Jahez)', icon: <Crown className="w-3.5 h-3.5 text-amber-600" />, badge: '8kg' },
+    { id: 'bridal-trousseau', label: 'Bridal Trousseau (Jahez)', icon: <Crown className="w-3.5 h-3.5 text-amber-600" />, badge: '8kg Royal' },
     { id: '2-ply-double', label: '2-Ply Heavyweight', icon: <Sparkles className="w-3.5 h-3.5 text-[#C28E5B]" />, badge: 'Best Seller' },
     { id: '1-ply-flannel', label: '1-Ply Soft Flannel' },
     { id: 'baby-kids', label: 'Baby & Nursery', icon: <Baby className="w-3.5 h-3.5 text-pink-600" /> },
     { id: 'bedspread-sets', label: 'Bedspread Sets', icon: <Bed className="w-3.5 h-3.5" /> },
-    { id: 'quiz', label: 'Warmth TOG Quiz', icon: <Flame className="w-3.5 h-3.5 text-orange-500" /> },
-    { id: 'track', label: 'Track Order', icon: <Truck className="w-3.5 h-3.5 text-emerald-600" /> },
+    { id: 'leadership', label: 'CEO & Director', icon: <Crown className="w-3.5 h-3.5 text-amber-500" />, badge: 'Executive' },
+    { id: 'quiz', label: 'Warmth Finder', icon: <Flame className="w-3.5 h-3.5 text-orange-500" /> },
+    { id: 'track', label: 'Track Consignment', icon: <Truck className="w-3.5 h-3.5 text-emerald-600" /> },
     { id: 'b2b', label: 'B2B Mill Direct', icon: <Building2 className="w-3.5 h-3.5 text-[#8C6D46]" /> }
   ];
 
-  const navMenuItems: { label: string; page: PageType; categoryAction?: BlanketCategory; badge?: string; icon?: React.ReactNode }[] = [
-    { label: 'Home', page: 'home', icon: <Home className="w-4 h-4" /> },
-    { label: 'Shop All Blankets', page: 'shop', categoryAction: 'all', icon: <Layers className="w-4 h-4" /> },
-    { label: 'Bridal Trousseau & Jahez', page: 'shop', categoryAction: 'bridal-trousseau', badge: 'Royal 8kg', icon: <Crown className="w-4 h-4 text-amber-600" /> },
-    { label: '2-Ply Heavyweight Mink', page: 'shop', categoryAction: '2-ply-double', badge: '5kg+ Hot', icon: <Sparkles className="w-4 h-4 text-[#C28E5B]" /> },
-    { label: '1-Ply Cozy Flannel', page: 'shop', categoryAction: '1-ply-flannel', icon: <Layers className="w-4 h-4" /> },
-    { label: 'Baby & Toddler Wraps', page: 'baby', badge: 'Safe', icon: <Baby className="w-4 h-4 text-pink-600" /> },
-    { label: 'B2B Wholesale & Dealerships', page: 'b2b', badge: 'Mill Price', icon: <Building2 className="w-4 h-4 text-[#8C6D46]" /> },
-    { label: 'Faisalabad & Peshawar Mills', page: 'about', icon: <Building2 className="w-4 h-4" /> },
-    { label: 'Track Consignment (CN)', page: 'track', icon: <Truck className="w-4 h-4 text-emerald-600" /> },
-    { label: 'Contact & Support', page: 'contact', icon: <Phone className="w-4 h-4" /> }
+  const desktopNavLinks: { label: string; page: PageType; categoryAction?: BlanketCategory; badge?: string; icon?: React.ReactNode; isLeadershipTrigger?: boolean }[] = [
+    { label: 'Home', page: 'home', icon: <Home className="w-3.5 h-3.5" /> },
+    { label: 'All Blankets', page: 'shop', categoryAction: 'all', icon: <Layers className="w-3.5 h-3.5" /> },
+    { label: 'Bridal Trousseau (8kg)', page: 'shop', categoryAction: 'bridal-trousseau', badge: 'Royal Jahez', icon: <Crown className="w-3.5 h-3.5 text-amber-500" /> },
+    { label: '2-Ply Heavy Winter', page: 'shop', categoryAction: '2-ply-double', badge: '5kg+ Mink', icon: <Sparkles className="w-3.5 h-3.5 text-[#C28E5B]" /> },
+    { label: '1-Ply Cozy Flannel', page: 'shop', categoryAction: '1-ply-flannel' },
+    { label: 'Baby & Kids', page: 'baby', badge: 'New' },
+    { label: 'B2B Wholesale', page: 'b2b', badge: 'Mill Direct' },
+    { label: 'Our Mills', page: 'about', icon: <Factory className="w-3.5 h-3.5" /> },
+    { label: 'Track Order', page: 'track', icon: <Truck className="w-3.5 h-3.5 text-emerald-600" /> },
+    { label: 'Executive Board', page: 'about', isLeadershipTrigger: true, badge: 'CEO & Director', icon: <Crown className="w-3.5 h-3.5 text-[#E5B57F]" /> }
   ];
 
   const handlePillClick = (item: typeof quickPills[0]) => {
+    if (item.id === 'leadership') {
+      setIsLeadershipModalOpen(true);
+      return;
+    }
     if (item.id === 'quiz') {
       setIsWarmthQuizOpen(true);
       return;
@@ -121,7 +130,12 @@ export const Navbar: React.FC = () => {
     setPage('shop');
   };
 
-  const handleNavClick = (targetPage: PageType, categoryAction?: BlanketCategory) => {
+  const handleNavClick = (targetPage: PageType, categoryAction?: BlanketCategory, isLeadershipTrigger?: boolean) => {
+    if (isLeadershipTrigger) {
+      setIsLeadershipModalOpen(true);
+      setIsMobileMenuOpen(false);
+      return;
+    }
     if (categoryAction) {
       setActiveCategory(categoryAction);
     } else if (targetPage === 'shop') {
@@ -129,43 +143,67 @@ export const Navbar: React.FC = () => {
     }
     setPage(targetPage);
     setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#E8E1D5] shadow-xs transition-all">
-        {/* Top Ticker / Trust Announcement Bar */}
-        <div className="bg-[#1C1A17] text-[#EDE7DE] text-[11px] py-1.5 px-3 sm:px-6">
-          <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+      {/* Primary Sticky Header: z-[60] guarantees it NEVER hides below page content or banners */}
+      <header className="sticky top-0 z-[60] w-full bg-white border-b border-[#DFCBB5] shadow-xs transition-all">
+        
+        {/* Tier 1: Executive Leadership & Trust Top Ribbon */}
+        <div className="bg-[#141210] text-[#EDE7DE] text-[11px] py-1.5 px-3 sm:px-6 border-b border-[#2B2620]">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+            
+            {/* Left: Free delivery & COD status */}
             <div className="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap">
-              <span className="inline-flex items-center gap-1 font-semibold text-[#E5B57F]">
+              <span className="inline-flex items-center gap-1 font-bold text-[#E5B57F]">
                 <Truck className="w-3.5 h-3.5 text-[#E5B57F] shrink-0" />
                 <span>FREE Home Delivery</span>
               </span>
-              <span className="text-[#8C7D6B] hidden sm:inline">•</span>
+              <span className="text-[#695F52] hidden sm:inline">•</span>
               <span className="hidden sm:inline text-neutral-300 truncate">
-                Lahore, Karachi, Islamabad, Peshawar, Quetta & 350+ Pakistani Cities
+                Lahore, Karachi, Islamabad, Peshawar, Quetta & 350+ Cities
               </span>
-              <span className="text-[#8C7D6B] hidden md:inline">•</span>
-              <span className="hidden md:inline font-medium text-emerald-400">
-                Pay with Cash on Delivery (COD)
+              <span className="text-[#695F52] hidden md:inline">•</span>
+              <span className="hidden md:inline font-semibold text-emerald-400">
+                Cash on Delivery (COD)
               </span>
             </div>
 
+            {/* Center/Executive Highlight: CEO Mohibullah & Director Amir Khan Afridi */}
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                onClick={() => setIsLeadershipModalOpen(true)}
+                className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-[#29221B] to-[#1C1712] border border-[#96764D]/60 text-[#E5B57F] hover:text-white hover:border-[#D9A76A] text-[10px] sm:text-[11px] font-bold tracking-wide transition-all shadow-xs cursor-pointer group"
+                title="View HBK Executive Leadership Profile"
+              >
+                <Crown className="w-3 h-3 text-[#E5B57F] group-hover:rotate-12 transition-transform" />
+                <span className="hidden xs:inline">Executive Board:</span>
+                <span className="text-white font-extrabold group-hover:text-[#E5B57F] transition-colors">CEO Mohibullah</span>
+                <span className="text-[#8C7D6B]">•</span>
+                <span className="text-white font-extrabold group-hover:text-[#E5B57F] transition-colors">Director Amir Khan Afridi</span>
+                <span className="text-[9px] uppercase px-1 py-0.2 rounded bg-[#C28E5B] text-black font-extrabold ml-1 hidden sm:inline">
+                  Profiles
+                </span>
+              </button>
+            </div>
+
+            {/* Right: Currency & WhatsApp */}
             <div className="flex items-center gap-3 shrink-0">
               <a
-                href="https://wa.me/923001234567?text=Hello%20HBK%20Blankets,%20I%20want%20to%20order%20or%20inquire%20about%20blankets."
+                href="https://wa.me/923001234567?text=Hello%20HBK%20Blankets,%20I%20want%20to%20inquire%20about%20blankets."
                 target="_blank"
                 rel="noreferrer"
-                className="hidden sm:inline-flex items-center gap-1 text-[#EDE7DE] hover:text-[#E5B57F] transition-colors font-medium"
+                className="hidden lg:inline-flex items-center gap-1 text-[#EDE7DE] hover:text-[#E5B57F] transition-colors font-medium"
               >
                 <MessageCircle className="w-3 h-3 text-[#25D366]" />
                 <span>WhatsApp: +92 300 1234567</span>
               </a>
 
-              <span className="text-[#4E4438] hidden sm:inline">|</span>
+              <span className="text-[#4E4438] hidden lg:inline">|</span>
 
-              {/* Currency Picker */}
+              {/* Currency Selector */}
               <div className="relative">
                 <button
                   id="currency-toggle-btn"
@@ -177,7 +215,7 @@ export const Navbar: React.FC = () => {
                 </button>
 
                 {isCurrencyDropdownOpen && (
-                  <div className="absolute right-0 mt-1.5 w-32 bg-[#1C1A17] border border-[#3E372E] rounded-xl shadow-2xl py-1 z-50">
+                  <div className="absolute right-0 mt-1.5 w-32 bg-[#1C1A17] border border-[#3E372E] rounded-xl shadow-2xl py-1 z-[70]">
                     {(['PKR', 'USD', 'AED', 'SAR'] as CurrencyCode[]).map(curr => (
                       <button
                         key={curr}
@@ -202,11 +240,11 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Main Header Bar */}
+        {/* Tier 2: Main Brand & Action Center Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-18 gap-3">
+          <div className="flex items-center justify-between h-16 sm:h-18 gap-3 sm:gap-6">
             
-            {/* Left: Brand Identity / HBK Logo */}
+            {/* Brand Logo & Founder Heritage */}
             <div 
               onClick={() => handleNavClick('home')}
               className="flex items-center gap-2.5 sm:gap-3.5 cursor-pointer group select-none shrink-0"
@@ -222,21 +260,23 @@ export const Navbar: React.FC = () => {
                     Blankets
                   </span>
                 </div>
-                <p className="text-[9px] sm:text-[10px] text-[#7A7265] tracking-tight font-semibold uppercase hidden xs:block">
-                  Haji Bahadur Khan Mills • Since 1994
-                </p>
+                <div className="flex items-center gap-1.5 text-[9px] sm:text-[10px] text-[#7A7265] font-semibold tracking-tight">
+                  <span className="uppercase text-[#8C6D46] font-bold">Haji Bahadur Khan Mills</span>
+                  <span className="hidden sm:inline text-[#C2AA8C]">•</span>
+                  <span className="hidden sm:inline text-[#574E41]">Est. 1994</span>
+                </div>
               </div>
             </div>
 
-            {/* Middle: Desktop Search Bar with Live Instant Autocomplete */}
-            <div className="hidden lg:flex flex-1 max-w-lg mx-4 relative">
+            {/* Center: Search Bar with Autocomplete */}
+            <div className="hidden md:flex flex-1 max-w-md lg:max-w-lg mx-2 relative">
               <div className="relative w-full">
                 <input
                   type="text"
                   value={searchInput}
                   onChange={e => setSearchInput(e.target.value)}
-                  placeholder="Search 2-Ply, Bridal Trousseau 8kg, Flannel, Baby Blankets..."
-                  className="w-full bg-[#F4EFE6] text-xs text-[#1C1A17] placeholder-[#8A8174] pl-10 pr-16 py-2.5 rounded-full border border-[#DFD7C7] focus:outline-none focus:border-[#C28E5B] focus:bg-white focus:ring-2 focus:ring-[#C28E5B]/20 transition-all shadow-inner"
+                  placeholder="Search 2-Ply, Kohinoor Bridal 8kg, Flannel, Baby..."
+                  className="w-full bg-[#FAF6F0] text-xs text-[#1C1A17] placeholder-[#8A8174] pl-10 pr-16 py-2.5 rounded-full border border-[#DFD7C7] focus:outline-none focus:border-[#C28E5B] focus:bg-white focus:ring-2 focus:ring-[#C28E5B]/20 transition-all shadow-inner"
                 />
                 <Search className="w-4 h-4 text-[#8A8174] absolute left-3.5 top-3" />
                 {searchInput && (
@@ -251,7 +291,7 @@ export const Navbar: React.FC = () => {
 
               {/* Autocomplete Dropdown */}
               {searchResults.length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-[#DECDB7] py-2 z-50 overflow-hidden animate-fadeIn">
+                <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-[#DECDB7] py-2 z-[70] overflow-hidden animate-fadeIn">
                   <div className="px-3.5 py-1 text-[10px] font-bold text-[#8C6D46] uppercase tracking-wider flex items-center justify-between border-b border-[#F5EFE6]">
                     <span>Matching Products ({searchResults.length})</span>
                     <span className="text-[#8C7D6B] font-normal">Click to view details</span>
@@ -263,27 +303,22 @@ export const Navbar: React.FC = () => {
                         navigateToProduct(prod);
                         setSearchInput('');
                       }}
-                      className="flex items-center gap-3 px-3.5 py-2.5 hover:bg-[#FAF6F0] cursor-pointer transition-colors border-b border-[#F5EFE6] last:border-0"
+                      className="flex items-center gap-3 px-3.5 py-2 hover:bg-[#FAF6F0] cursor-pointer transition-colors"
                     >
                       <img
                         src={prod.images[0]}
                         alt={prod.name}
                         referrerPolicy="no-referrer"
-                        className="w-11 h-11 rounded-lg object-cover border border-[#DECDB7] shrink-0"
+                        className="w-10 h-10 rounded-lg object-cover border border-[#E8E1D5] shrink-0"
                       />
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs font-bold text-[#1C1A17] truncate">{prod.name}</p>
-                        <p className="text-[11px] text-[#7A7265]">{prod.ply} • {prod.weightKg}kg • {prod.warmthRating}</p>
-                      </div>
-                      <div className="text-right shrink-0">
-                        <span className="text-xs font-bold text-[#8C6D46] block">
-                          {formatPrice(prod.pricePKR)}
-                        </span>
-                        {prod.originalPricePKR && (
-                          <span className="text-[10px] text-neutral-400 line-through">
-                            {formatPrice(prod.originalPricePKR)}
+                        <div className="flex items-center justify-between gap-2">
+                          <p className="text-xs font-bold text-[#1C1A17] truncate">{prod.name}</p>
+                          <span className="text-xs font-bold text-[#C28E5B] shrink-0">
+                            {formatPrice(prod.pricePKR)}
                           </span>
-                        )}
+                        </div>
+                        <p className="text-[10px] text-[#7A7265] truncate">{prod.ply} • {prod.tagline}</p>
                       </div>
                     </div>
                   ))}
@@ -291,24 +326,34 @@ export const Navbar: React.FC = () => {
               )}
             </div>
 
-            {/* Right: Actions, Warmth Finder, Cart, Menu Button */}
+            {/* Right Action Suite */}
             <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+              
+              {/* Executive Directorate Button (Prominently Highlighted) */}
+              <button
+                onClick={() => setIsLeadershipModalOpen(true)}
+                className="hidden xl:inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold bg-[#1C1A17] text-[#E5B57F] border border-[#96764D]/50 hover:bg-[#2F2921] transition-all cursor-pointer shadow-xs"
+                title="HBK Board: CEO Mohibullah & Director Amir Khan Afridi"
+              >
+                <Crown className="w-3.5 h-3.5 text-[#E5B57F]" />
+                <span>CEO & Director</span>
+              </button>
+
               {/* Warmth Finder Button */}
               <button
-                id="blanket-finder-btn"
                 onClick={() => setIsWarmthQuizOpen(true)}
-                className="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold bg-[#F4EFE6] text-[#7A5626] border border-[#DFCBB5] hover:bg-[#EADBCE] transition-all cursor-pointer shadow-xs"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold bg-[#F4EFE6] text-[#7A5626] border border-[#DFCBB5] hover:bg-[#EADBCE] transition-all cursor-pointer shadow-xs"
                 title="Interactive Warmth TOG Calculator"
               >
                 <Flame className="w-3.5 h-3.5 text-[#D16D34] fill-[#D16D34]" />
-                <span>Warmth Finder</span>
+                <span className="hidden lg:inline">Warmth Finder</span>
               </button>
 
               {/* Mobile Search Trigger */}
               <button
                 id="mobile-search-toggle-btn"
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="lg:hidden p-2 rounded-full text-[#38332B] hover:bg-[#F2ECE1] transition-colors cursor-pointer"
+                className="md:hidden p-2 rounded-full text-[#38332B] hover:bg-[#F2ECE1] transition-colors cursor-pointer"
                 aria-label="Search blankets"
               >
                 <Search className="w-5 h-5" />
@@ -354,7 +399,7 @@ export const Navbar: React.FC = () => {
                 </div>
               </button>
 
-              {/* Hamburger Button */}
+              {/* Mobile Drawer Trigger */}
               <button
                 id="mobile-menu-toggle-btn"
                 onClick={() => setIsMobileMenuOpen(true)}
@@ -366,9 +411,9 @@ export const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* Expandable Search on Mobile */}
+          {/* Mobile Expandable Search */}
           {isSearchOpen && (
-            <div className="lg:hidden py-3 border-t border-[#E8E1D5] animate-fadeIn">
+            <div className="md:hidden py-3 border-t border-[#E8E1D5] animate-fadeIn">
               <div className="relative">
                 <input
                   ref={searchInputRef}
@@ -376,7 +421,7 @@ export const Navbar: React.FC = () => {
                   value={searchInput}
                   onChange={e => setSearchInput(e.target.value)}
                   placeholder="Search 2-Ply, Bridal, Flannel, Baby, Sherpa..."
-                  className="w-full bg-[#F4EFE6] text-xs text-[#1C1A17] placeholder-[#8A8174] pl-10 pr-14 py-2.5 rounded-full border border-[#DFD7C7] focus:outline-none focus:border-[#C28E5B] focus:bg-white"
+                  className="w-full bg-[#FAF6F0] text-xs text-[#1C1A17] placeholder-[#8A8174] pl-10 pr-14 py-2.5 rounded-full border border-[#DFD7C7] focus:outline-none focus:border-[#C28E5B] focus:bg-white"
                 />
                 <Search className="w-4 h-4 text-[#8A8174] absolute left-3.5 top-3" />
                 {searchInput && (
@@ -420,8 +465,67 @@ export const Navbar: React.FC = () => {
           )}
         </div>
 
-        {/* Quick Category Pills Sub-Bar (Horizontal Scrollable on all devices) */}
-        <div className="w-full bg-[#FAF6F0]/90 border-t border-[#EAE3D5] py-2 px-3 sm:px-6 overflow-x-auto scrollbar-none">
+        {/* Tier 3: Full Desktop Category & Executive Portal Navigation Bar (Always Visible on Desktop!) */}
+        <div className="hidden lg:block w-full bg-white border-t border-[#EDE4D6] shadow-2xs">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <nav className="flex items-center space-x-1 py-1">
+              {desktopNavLinks.map(link => {
+                const isActive = 
+                  !link.isLeadershipTrigger &&
+                  page === link.page && 
+                  (!link.categoryAction || activeCategory === link.categoryAction);
+
+                return (
+                  <button
+                    key={link.label}
+                    onClick={() => handleNavClick(link.page, link.categoryAction, link.isLeadershipTrigger)}
+                    className={`relative px-3 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                      link.isLeadershipTrigger
+                        ? 'text-[#C28E5B] hover:text-[#966736] hover:bg-[#FDF9F3]'
+                        : isActive
+                          ? 'text-[#1C1A17] bg-[#FAF4EB] shadow-2xs'
+                          : 'text-[#4A4235] hover:text-[#1C1A17] hover:bg-[#FAF8F5]'
+                    }`}
+                  >
+                    {link.icon}
+                    <span>{link.label}</span>
+                    {link.badge && (
+                      <span className={`text-[9px] font-extrabold px-1.5 py-0.2 rounded-full uppercase ${
+                        link.isLeadershipTrigger
+                          ? 'bg-[#E5B57F] text-[#1C1A17]'
+                          : link.badge.includes('Royal')
+                            ? 'bg-gradient-to-r from-[#D9A76A] to-[#B37E46] text-white shadow-2xs'
+                            : 'bg-[#EDE3D3] text-[#7A6B58]'
+                      }`}>
+                        {link.badge}
+                      </span>
+                    )}
+                    {isActive && (
+                      <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#C28E5B] rounded-full" />
+                    )}
+                  </button>
+                );
+              })}
+            </nav>
+
+            <div className="flex items-center gap-3 text-xs text-[#7A6E5D]">
+              <span className="inline-flex items-center gap-1">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span>100% Virgin Korean Acrylic</span>
+              </span>
+              <span className="text-[#DECDB7]">•</span>
+              <button
+                onClick={() => setIsTextureViewerOpen(true)}
+                className="text-[#8C6D46] hover:text-[#1C1A17] font-bold cursor-pointer"
+              >
+                Fabric Texture Lab
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Tier 4: Quick Category Chips Sub-Bar (Responsive, 1-tap horizontal access) */}
+        <div className="w-full bg-[#FAF7F2] border-t border-[#EAE2D5] py-2 px-3 sm:px-6 overflow-x-auto scrollbar-none">
           <div className="max-w-7xl mx-auto flex items-center gap-1.5 sm:gap-2 whitespace-nowrap min-w-max">
             {quickPills.map(pill => {
               const isSelected = 
@@ -435,18 +539,22 @@ export const Navbar: React.FC = () => {
                   key={pill.id}
                   onClick={() => handlePillClick(pill)}
                   className={`px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
-                    isSelected
-                      ? 'bg-[#1C1A17] text-[#FAF8F5] shadow-xs'
-                      : 'bg-white text-[#4A4235] border border-[#DECDB7] hover:border-[#8C6D46] hover:bg-[#F2ECE1]'
+                    pill.id === 'leadership'
+                      ? 'bg-gradient-to-r from-[#29221B] to-[#1C1A17] text-[#E5B57F] border border-[#96764D]/60 hover:border-[#D9A76A]'
+                      : isSelected
+                        ? 'bg-[#1C1A17] text-[#FAF8F5] shadow-xs'
+                        : 'bg-white text-[#4A4235] border border-[#DECDB7] hover:border-[#8C6D46] hover:bg-[#F2ECE1]'
                   }`}
                 >
                   {pill.icon}
                   <span>{pill.label}</span>
                   {pill.badge && (
                     <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded-full uppercase ${
-                      isSelected 
-                        ? 'bg-[#C28E5B] text-white' 
-                        : 'bg-[#F0E6D8] text-[#8C6D46]'
+                      pill.id === 'leadership'
+                        ? 'bg-[#C28E5B] text-black font-extrabold'
+                        : isSelected 
+                          ? 'bg-[#C28E5B] text-white' 
+                          : 'bg-[#F0E6D8] text-[#8C6D46]'
                     }`}>
                       {pill.badge}
                     </span>
@@ -458,9 +566,9 @@ export const Navbar: React.FC = () => {
         </div>
       </header>
 
-      {/* Enhanced Full-Screen Mobile Drawer (Never cuts off, smooth slide-in, body lock) */}
+      {/* Full-Screen Mobile Drawer: z-[80] keeps it safely above the header */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 flex animate-fadeIn">
+        <div className="fixed inset-0 z-[80] flex animate-fadeIn">
           {/* Backdrop */}
           <div 
             className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
@@ -470,8 +578,9 @@ export const Navbar: React.FC = () => {
           {/* Drawer Content Panel */}
           <div className="relative w-full max-w-sm bg-white h-full shadow-2xl flex flex-col justify-between overflow-y-auto z-10 animate-slideRight">
             
-            {/* Drawer Header */}
+            {/* Top Section */}
             <div>
+              {/* Drawer Header */}
               <div className="p-4 bg-[#1C1A17] text-white flex items-center justify-between border-b border-[#3E372E]">
                 <div className="flex items-center gap-2.5">
                   <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#2E2820] to-[#1C1A17] flex items-center justify-center text-[#E5B57F] border border-[#96764D]/50 font-serif font-black text-base">
@@ -492,7 +601,43 @@ export const Navbar: React.FC = () => {
                 </button>
               </div>
 
-              {/* Warmth Finder CTA Banner in drawer */}
+              {/* EXECUTIVE LEADERSHIP HIGHLIGHT CARD (Requested Feature) */}
+              <div className="p-3 bg-gradient-to-br from-[#1C1A17] via-[#2A231B] to-[#14120F] text-white border-b border-[#473B2E] space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-[#E5B57F]">
+                    <Crown className="w-3 h-3 text-[#E5B57F]" />
+                    <span>Executive Directorate</span>
+                  </span>
+                  <button
+                    onClick={() => {
+                      setIsLeadershipModalOpen(true);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="text-[10px] text-[#D9A76A] font-bold underline cursor-pointer"
+                  >
+                    View Dossier
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div className="p-2 rounded-xl bg-white/5 border border-white/10 space-y-0.5">
+                    <span className="text-[9px] uppercase font-bold text-[#D9A76A] block">CEO</span>
+                    <p className="font-bold text-white text-xs">Mohibullah</p>
+                    <p className="text-[10px] text-[#B8A896]">Chief Executive Officer</p>
+                  </div>
+                  <div className="p-2 rounded-xl bg-white/5 border border-white/10 space-y-0.5">
+                    <span className="text-[9px] uppercase font-bold text-[#D9A76A] block">Director</span>
+                    <p className="font-bold text-white text-xs">Amir Khan Afridi</p>
+                    <p className="text-[10px] text-[#B8A896]">Managing Director</p>
+                  </div>
+                </div>
+
+                <p className="text-[10px] text-[#A69C8E] leading-tight">
+                  Guaranteed 100% Virgin Acrylic & Direct Factory Dispatch from Faisalabad & Peshawar.
+                </p>
+              </div>
+
+              {/* Warmth Finder Banner */}
               <div className="p-3 bg-[#FAF6F0] border-b border-[#DECDB7]">
                 <button
                   onClick={() => {
@@ -514,12 +659,12 @@ export const Navbar: React.FC = () => {
                 <p className="text-[10px] font-bold uppercase tracking-wider text-[#8C6D46] px-3 py-1.5">
                   Blanket Collections & Portals
                 </p>
-                {navMenuItems.map(item => (
+                {desktopNavLinks.map(item => (
                   <button
                     key={item.label}
-                    onClick={() => handleNavClick(item.page, item.categoryAction)}
+                    onClick={() => handleNavClick(item.page, item.categoryAction, item.isLeadershipTrigger)}
                     className={`w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between transition-colors cursor-pointer ${
-                      page === item.page && (!item.categoryAction || activeCategory === item.categoryAction)
+                      !item.isLeadershipTrigger && page === item.page && (!item.categoryAction || activeCategory === item.categoryAction)
                         ? 'bg-[#1C1A17] text-white shadow-xs'
                         : 'text-[#3E372E] hover:bg-[#FAF6F0]'
                     }`}
@@ -529,7 +674,9 @@ export const Navbar: React.FC = () => {
                       <span>{item.label}</span>
                     </div>
                     {item.badge && (
-                      <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#C28E5B] text-white">
+                      <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${
+                        item.isLeadershipTrigger ? 'bg-[#E5B57F] text-black font-extrabold' : 'bg-[#C28E5B] text-white'
+                      }`}>
                         {item.badge}
                       </span>
                     )}
@@ -540,12 +687,11 @@ export const Navbar: React.FC = () => {
 
             {/* Drawer Footer & Direct Help */}
             <div className="p-4 border-t border-[#E8E1D5] bg-[#FAF8F5] space-y-3">
-              {/* Mill authenticity badge */}
               <div className="flex items-start gap-2.5 p-2.5 bg-white rounded-xl border border-[#DECDB7]">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                 <div className="text-[11px] text-[#4A4235]">
                   <p className="font-bold text-[#1C1A17]">100% Genuine Factory Direct</p>
-                  <p className="text-[10px] text-[#7A7265]">ISO 9001 & OEKO-TEX Standard 100 Certified</p>
+                  <p className="text-[10px] text-[#7A7265]">Under CEO Mohibullah & Dir. Amir Khan Afridi</p>
                 </div>
               </div>
 
@@ -568,19 +714,153 @@ export const Navbar: React.FC = () => {
                   <span>Call Mill</span>
                 </a>
               </div>
-
-              <p className="text-[10px] text-center text-[#8C7D6B]">
-                Peshawar & Faisalabad Mills • All Pakistan COD
-              </p>
             </div>
           </div>
         </div>
       )}
 
-      {/* Flagship Mobile Bottom Navigation Bar (Gold Standard for Pakistani E-Commerce) */}
+      {/* DEDICATED EXECUTIVE LEADERSHIP DOSSIER MODAL (CEO Mohibullah & Director Amir Khan Afridi) */}
+      {isLeadershipModalOpen && (
+        <div className="fixed inset-0 z-[110] overflow-y-auto p-4 sm:p-6 lg:p-8 flex items-center justify-center animate-fadeIn">
+          {/* Backdrop */}
+          <div 
+            onClick={() => setIsLeadershipModalOpen(false)}
+            className="fixed inset-0 bg-black/75 backdrop-blur-xs transition-opacity"
+          />
+
+          {/* Modal Card */}
+          <div className="relative bg-[#FAF8F5] rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-[#DFCBB5] z-10 space-y-6 animate-scaleUp">
+            
+            {/* Modal Header */}
+            <div className="bg-gradient-to-r from-[#141210] via-[#241E18] to-[#141210] text-white p-6 sm:p-8 relative">
+              <button
+                onClick={() => setIsLeadershipModalOpen(false)}
+                className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="space-y-2 max-w-xl">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E5B57F]/20 border border-[#E5B57F]/40 text-[#E5B57F] text-xs font-bold uppercase tracking-wider">
+                  <Crown className="w-3.5 h-3.5 text-[#E5B57F]" />
+                  <span>HBK Blanket Industries (Pvt) Ltd • Executive Directorate</span>
+                </span>
+                <h2 className="font-serif font-bold text-2xl sm:text-3xl text-white">
+                  Visionary Mill Leadership
+                </h2>
+                <p className="text-xs sm:text-sm text-[#D1C7BA] leading-relaxed">
+                  Steering Pakistan’s largest integrated blanket manufacturing composite from Peshawar and Faisalabad to global export standards.
+                </p>
+              </div>
+            </div>
+
+            {/* Leadership Profiles */}
+            <div className="p-6 sm:p-8 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                {/* CEO Profile */}
+                <div className="p-5 rounded-2xl bg-white border-2 border-[#E8DCCB] shadow-xs space-y-3 relative overflow-hidden group hover:border-[#C28E5B] transition-colors">
+                  <div className="w-12 h-12 rounded-2xl bg-[#1C1A17] text-[#E5B57F] flex items-center justify-center font-serif font-black text-xl shadow-md border border-[#96764D]/50">
+                    M
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#C28E5B] block">
+                      Chief Executive Officer (CEO)
+                    </span>
+                    <h3 className="font-serif font-bold text-xl text-[#1C1A17]">Mohibullah</h3>
+                    <p className="text-xs text-[#7A7265] mt-0.5">Chief Executive Officer, HBK Blanket Industries</p>
+                  </div>
+                  <p className="text-xs text-[#5E5547] leading-relaxed">
+                    Spearheading technology modernization and the transition to computerized German Karl Mayer double-needle Raschel knitting machines. Under his tenure, HBK has scaled production capacity to over 12,000 blankets per day.
+                  </p>
+                  <div className="pt-2 border-t border-[#F2ECE1] flex items-center gap-2 text-[11px] text-emerald-800 font-semibold">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Focus: Industrial Automation & Quality Benchmarks</span>
+                  </div>
+                </div>
+
+                {/* Director Profile */}
+                <div className="p-5 rounded-2xl bg-white border-2 border-[#E8DCCB] shadow-xs space-y-3 relative overflow-hidden group hover:border-[#C28E5B] transition-colors">
+                  <div className="w-12 h-12 rounded-2xl bg-[#1C1A17] text-[#E5B57F] flex items-center justify-center font-serif font-black text-xl shadow-md border border-[#96764D]/50">
+                    A
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#C28E5B] block">
+                      Managing Director
+                    </span>
+                    <h3 className="font-serif font-bold text-xl text-[#1C1A17]">Amir Khan Afridi</h3>
+                    <p className="text-xs text-[#7A7265] mt-0.5">Director of Operations & Global Procurement</p>
+                  </div>
+                  <p className="text-xs text-[#5E5547] leading-relaxed">
+                    Directing international raw material contracts, 100% virgin Korean acrylic imports, and the flagship Kohinoor 8kg Royal Bridal Trousseau series. He leads HBK's nationwide dealership network across all four provinces.
+                  </p>
+                  <div className="pt-2 border-t border-[#F2ECE1] flex items-center gap-2 text-[11px] text-emerald-800 font-semibold">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Focus: Raw Materials, Bridal Luxury & Distribution</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Founder Legacy Tribute */}
+              <div className="p-4 rounded-2xl bg-[#FAF6F0] border border-[#DECDB7] flex items-start gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-[#1C1A17] text-[#D9A76A] flex items-center justify-center font-serif font-bold text-base shrink-0">
+                  HBK
+                </div>
+                <div className="text-xs space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="font-serif font-bold text-sm text-[#1C1A17]">Haji Bahadur Khan</span>
+                    <span className="text-[10px] px-2 py-0.2 rounded-full bg-[#E5B57F]/30 text-[#8C6D46] font-bold uppercase">
+                      Founder & Chairman Emeritus
+                    </span>
+                  </div>
+                  <p className="text-[#6B6152] leading-relaxed">
+                    Founded in 1994 with the historic mission of building Pakistan's first fully self-reliant acrylic blanket industry, liberating our markets from costly foreign imports.
+                  </p>
+                </div>
+              </div>
+
+              {/* Personal Guarantee & Action */}
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-[#1C1A17] to-[#2B231A] text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="space-y-1 text-center sm:text-left">
+                  <p className="font-serif font-bold text-sm text-[#E5B57F]">
+                    "Our Family's Personal Seal on Every Blanket"
+                  </p>
+                  <p className="text-[11px] text-[#D1C7BA]">
+                    Every HBK blanket is backed by our direct 10-Year anti-shedding & thermal retention warranty.
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  <a
+                    href="https://wa.me/923001234567?text=Hello%20CEO%20Mohibullah%20and%20Director%20Amir%20Khan%20Afridi%20Office,%20I%20have%20an%20executive%20inquiry."
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-4 py-2 rounded-xl bg-[#25D366] text-white text-xs font-bold flex items-center gap-1.5 shadow-md hover:bg-[#20BA5A] transition-colors"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" />
+                    <span>Executive WhatsApp</span>
+                  </a>
+                  <button
+                    onClick={() => {
+                      setIsLeadershipModalOpen(false);
+                      setPage('about');
+                    }}
+                    className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/20 transition-colors cursor-pointer"
+                  >
+                    Visit Mill Tour
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Flagship Mobile Bottom Navigation Bar: z-40 */}
       <nav 
         id="mobile-bottom-nav"
-        className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-white/95 backdrop-blur-md border-t border-[#DECDB7] px-2 py-1.5 shadow-[0_-4px_25px_rgba(0,0,0,0.08)] flex items-center justify-around"
+        className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-white/98 backdrop-blur-md border-t border-[#DECDB7] px-2 py-1.5 shadow-[0_-4px_25px_rgba(0,0,0,0.08)] flex items-center justify-around"
       >
         <button
           onClick={() => handleNavClick('home')}
@@ -616,13 +896,11 @@ export const Navbar: React.FC = () => {
         </button>
 
         <button
-          onClick={() => handleNavClick('track')}
-          className={`flex flex-col items-center gap-0.5 py-1 px-2.5 rounded-lg text-[10px] font-semibold transition-colors cursor-pointer ${
-            page === 'track' ? 'text-[#1C1A17] font-bold' : 'text-[#7A7265] hover:text-[#1C1A17]'
-          }`}
+          onClick={() => setIsLeadershipModalOpen(true)}
+          className="flex flex-col items-center gap-0.5 py-1 px-2.5 rounded-lg text-[10px] font-semibold text-[#C28E5B] hover:text-[#1C1A17] transition-colors cursor-pointer"
         >
-          <Truck className={`w-5 h-5 ${page === 'track' ? 'text-[#C28E5B]' : 'text-[#8A8174]'}`} />
-          <span>Track</span>
+          <Crown className="w-5 h-5 text-[#C28E5B]" />
+          <span>Leadership</span>
         </button>
 
         <button

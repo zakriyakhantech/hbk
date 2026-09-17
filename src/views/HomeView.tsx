@@ -916,6 +916,58 @@ export const HomeView: React.FC = () => {
         </div>
       </section>
 
+      {/* Executive Mill Direct Seal: CEO Mohibullah & Director Amir Khan Afridi */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-r from-[#1C1A17] via-[#2D241B] to-[#1C1A17] text-white rounded-3xl p-6 sm:p-10 border border-[#4D3F30] shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="space-y-3 max-w-2xl">
+            <div className="flex items-center gap-2">
+              <span className="px-3 py-1 rounded-full bg-[#E5B57F]/20 border border-[#E5B57F]/40 text-[#E5B57F] text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                <Crown className="w-3.5 h-3.5" />
+                <span>Executive Quality Assurance Seal</span>
+              </span>
+              <span className="text-xs text-neutral-400 hidden sm:inline">•</span>
+              <span className="text-xs text-[#DECDB7] hidden sm:inline">Faisalabad & Peshawar Mills</span>
+            </div>
+            
+            <h3 className="font-serif font-bold text-2xl sm:text-3xl text-white leading-tight">
+              Personal Quality Guarantee by CEO Mohibullah & Director Amir Khan Afridi
+            </h3>
+            
+            <p className="text-xs sm:text-sm text-[#D1C7BA] leading-relaxed">
+              "Every single meter of acrylic woven at our facilities undergoes 40-ton hydraulic relief pressing, Swiss anti-static conditioning, and dual-tunnel metal detector scanning. We personally certify our blankets to be 100% virgin fiber with zero pile shedding."
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4 pt-2 text-xs">
+              <div className="flex items-center gap-2 text-[#E5B57F] font-semibold">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <span>CEO Mohibullah (Chief Executive Officer)</span>
+              </div>
+              <span className="text-[#6E5F50]">•</span>
+              <div className="flex items-center gap-2 text-[#E5B57F] font-semibold">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <span>Director Amir Khan Afridi (Managing Director)</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+            <button
+              onClick={() => setPage('about')}
+              className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/20 transition-all cursor-pointer"
+            >
+              Read Executive Vision
+            </button>
+            <button
+              onClick={() => setPage('shop')}
+              className="px-5 py-3 rounded-xl bg-[#C28E5B] hover:bg-[#A87444] text-white text-xs font-bold transition-all shadow-md cursor-pointer flex items-center gap-1.5"
+            >
+              <span>Explore Certified Blankets</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* B2B / Wholesale Callout Bar */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#1C1A17] text-white rounded-2xl p-8 sm:p-12 relative overflow-hidden border border-[#3A332A] flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">

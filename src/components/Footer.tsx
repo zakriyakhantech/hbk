@@ -93,7 +93,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-xs text-[#A69C8E] leading-relaxed max-w-sm">
-              Founded under the leadership of Chairman Haji Bahadur Khan, HBK Blankets is Pakistan's premier and largest blanket manufacturer. Operating world-class Raschel knitting mills in Faisalabad, spinning facilities in Peshawar, and port export operations in Karachi.
+              Founded under the legacy of Chairman Haji Bahadur Khan, and driven by the visionary direction of <strong className="text-white">CEO Mohibullah</strong> and <strong className="text-white">Director Amir Khan Afridi</strong>, HBK Blankets is Pakistan's premier blanket manufacturing powerhouse. Operating world-class Raschel knitting mills in Faisalabad, spinning facilities in Peshawar, and global export operations in Karachi.
             </p>
 
             <div className="space-y-1.5 text-xs text-[#C2AA8C] pt-1">

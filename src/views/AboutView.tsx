@@ -9,7 +9,10 @@ import {
   Layers, 
   ArrowRight,
   Factory,
-  Globe2
+  Globe2,
+  Crown,
+  Phone,
+  MessageSquare
 } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 
@@ -135,6 +138,135 @@ export const AboutView: React.FC = () => {
               <p className="text-xs font-bold text-[#1C1A17]">100% In-House Composite Mill</p>
               <p className="text-[11px] text-[#7A7265] mt-0.5">Spinning, Raschel weaving, dyeing, 3D hydraulic embossing & QC testing.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Executive Directorate & Modern Mill Leadership */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-br from-[#1C1A17] via-[#2A231B] to-[#14120F] text-white rounded-3xl p-8 sm:p-12 border border-[#4D3F30] shadow-2xl space-y-10">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#3D3328] pb-6">
+            <div className="space-y-2 max-w-xl">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5B57F]/20 border border-[#E5B57F]/40 text-[#E5B57F] text-xs font-bold uppercase tracking-wider">
+                <Crown className="w-3.5 h-3.5 text-[#E5B57F]" />
+                <span>Executive Board of Directors</span>
+              </span>
+              <h2 className="font-serif font-bold text-2xl sm:text-4xl text-white">
+                Under the Visionary Leadership of CEO Mohibullah & Director Amir Khan Afridi
+              </h2>
+              <p className="text-xs sm:text-sm text-[#D1C7BA] leading-relaxed">
+                Guiding HBK Blanket Industries into a new era of automated manufacturing, Korean acrylic innovation, and international market leadership.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-white/5 rounded-2xl border border-white/10 text-center">
+                <span className="text-[#E5B57F] font-serif font-black text-xl sm:text-2xl block">12,000+</span>
+                <span className="text-[10px] text-[#A69C8E] uppercase tracking-wider">Daily Mill Output</span>
+              </div>
+              <div className="p-3 bg-white/5 rounded-2xl border border-white/10 text-center">
+                <span className="text-[#E5B57F] font-serif font-black text-xl sm:text-2xl block">350+</span>
+                <span className="text-[10px] text-[#A69C8E] uppercase tracking-wider">Dealer Network</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* CEO Profile Card */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-5 hover:border-[#D9A76A]/60 transition-colors">
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#C28E5B] to-[#E5B57F] text-black font-serif font-black text-2xl flex items-center justify-center shadow-lg">
+                    M
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#E5B57F] block">
+                      Chief Executive Officer (CEO)
+                    </span>
+                    <h3 className="font-serif font-bold text-2xl text-white">Mohibullah</h3>
+                    <p className="text-xs text-[#A69C8E]">HBK Blanket Industries (Pvt) Ltd</p>
+                  </div>
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold uppercase">
+                  Executive
+                </span>
+              </div>
+
+              <blockquote className="text-xs sm:text-sm text-[#D1C7BA] leading-relaxed italic border-l-2 border-[#C28E5B] pl-4">
+                "Our mission is to establish Pakistan as the undisputed global center for heavy winter blankets. We have completely modernized our Faisalabad spinning and Raschel weaving lines to rival the finest mills in Daegu and Osaka."
+              </blockquote>
+
+              <div className="space-y-2 pt-2 border-t border-white/10 text-xs">
+                <div className="flex items-center gap-2 text-[#E5B57F]">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Karl Mayer High-Speed Double Bed Knitting Technology</span>
+                </div>
+                <div className="flex items-center gap-2 text-[#E5B57F]">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Strategic Expansion across Punjab & Sindh Markets</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Director Profile Card */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-5 hover:border-[#D9A76A]/60 transition-colors">
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#C28E5B] to-[#E5B57F] text-black font-serif font-black text-2xl flex items-center justify-center shadow-lg">
+                    A
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#E5B57F] block">
+                      Managing Director
+                    </span>
+                    <h3 className="font-serif font-bold text-2xl text-white">Amir Khan Afridi</h3>
+                    <p className="text-xs text-[#A69C8E]">Director of Operations & Procurement</p>
+                  </div>
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold uppercase">
+                  Directorate
+                </span>
+              </div>
+
+              <blockquote className="text-xs sm:text-sm text-[#D1C7BA] leading-relaxed italic border-l-2 border-[#C28E5B] pl-4">
+                "Quality begins with the fiber. We refuse to compromise on recycled synthetics — every HBK blanket contains 100% virgin Korean acrylic, tested for zero pile shedding and lifetime thermal performance."
+              </blockquote>
+
+              <div className="space-y-2 pt-2 border-t border-white/10 text-xs">
+                <div className="flex items-center gap-2 text-[#E5B57F]">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Direct Overseer of Kohinoor 8kg Royal Bridal Trousseau</span>
+                </div>
+                <div className="flex items-center gap-2 text-[#E5B57F]">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>KPK & Central Asian Transit Trade Logistics</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Direct Executive Hotline Card */}
+          <div className="bg-white/10 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 border border-white/10">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#C28E5B] text-black flex items-center justify-center shrink-0">
+                <Crown className="w-5 h-5" />
+              </div>
+              <div className="text-xs">
+                <p className="font-bold text-white">Direct Access to the Executive Office</p>
+                <p className="text-[#A69C8E]">For large commercial tenders, export consignments, or bridal bulk orders.</p>
+              </div>
+            </div>
+
+            <a
+              href="https://wa.me/923001234567?text=Hello%20CEO%20Mohibullah%20and%20Director%20Amir%20Khan%20Afridi%20Office,%20I%20have%20an%20inquiry%20regarding%20bulk%20blankets."
+              target="_blank"
+              rel="noreferrer"
+              className="px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs font-bold transition-all shadow-md flex items-center gap-2 shrink-0 cursor-pointer"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>Connect with Director's Desk</span>
+            </a>
           </div>
         </div>
       </section>
