@@ -1,0 +1,6 @@
+{
+  "name": "HBK Blankets",
+  "description": "Pakistan's premier luxury & winter blanket manufacturer. Explore 1-ply and 2-ply embossed mink blankets, baby wraps, bedding sets, B2B wholesale, and factory-direct craftsmanship.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
